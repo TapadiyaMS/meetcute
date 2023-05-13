@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import { getUserAuth } from "./actions";
 import { connect } from 'react-redux';
 import JoinNow from './components/JoinNow';
+import SignUp from './components/SignUp';
 
 function App(props) {
   useEffect (() => {
@@ -19,6 +20,9 @@ function App(props) {
         <Switch>
           <Route exact path='/'>
             <Login />
+          </Route>
+          <Route exact path='/signup'>
+            <SignUp />
           </Route>
           <Route path='/home'>
             <Header />

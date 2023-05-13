@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { connect } from 'react-redux';
 import { signInAPI } from "../actions";
 import { Redirect } from "react-router-dom";
+import SignIn from "./SignIn";
 
 const Login = (props) => {
   return (
@@ -13,15 +14,15 @@ const Login = (props) => {
         </a>
         <div>
           <Join href="/signup"> Join now </Join> 
-          <SignIn href="./SignIn">Sign in</SignIn> 
         </div>
       </Nav>
       <Section>
         <Hero>
-          <h1>Find Your Next Playmate with Peekaboo</h1>
           <img src="/images/login-hero.jpg" alt="" />
         </Hero>
         <Form>
+          {/* <Image src="/images/log-in.png" alt="" /> */}
+          <SignIn />
           <Google onClick={() => props.signIn()}>
             <img src="/images/google.svg" alt="" />
             Sign in with Google
@@ -55,34 +56,17 @@ const Nav = styled.nav`
 `;
 
 const Join = styled.a`
-  font-size: 16px;
+  font-size: 19px;
+  box-shadow: inset 0 0 0 1px transparent;
   padding: 10px 12px;
-  text-decoration: none;
-  border-radius: 4px;
-  color: rgba(0, 0, 0, 0.6);
   margin-right: 12px;
+  text-decoration: none;
+  border-radius: 50px;
+  color: white;
   &:hover {
-    background-color: rgba(0, 0, 0, 0.08);
-    color: rgba(0, 0, 0, 0.9);
-    text-decoration: none;
-  }
-`;
-
-const SignIn = styled.a`
-  box-shadow: inset 0 0 0 1px #0a66c2;
-  color: #0a66c2;
-  border-radius: 24px;
-  transition-duration: 167ms;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 40px;
-  padding: 10px 24px;
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0);
-  text-decoration: none; // no underline
-  &:hover {
-    background-color: rgba(112, 181, 249, 0.15);
-    color: #0a66c2;
+    box-shadow: inset 0 0 0 1px transparent;
+    background-color: #2F394D;
+    color: white;
     text-decoration: none;
   }
 `;
@@ -108,20 +92,6 @@ const Section = styled.section`
 
 const Hero = styled.div`
   width: 100%;
-  h1 {
-    padding-bottom: 0;
-    width: 55%;
-    font-size: 56px;
-    color: #2977c9;
-    font-weight: 200;
-    line-height: 70px;
-    @media (max-width: 768px) {
-      text-align: center;
-      font-size: 20px;
-      width: 100%;
-      line-height: 2;
-    }
-  }
   img {
     /* z-index: -1; */
     width: 700px;
@@ -140,31 +110,42 @@ const Hero = styled.div`
 `;
 
 const Form = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 100px;
   width: 408px;
+
   @media (max-width: 768px) {
     margin-top: 20px;
   }
 `;
 
+const Image = styled.img`
+  height: 60px;
+  width: 60%;
+`;
+
 const Google = styled.button`
   display: flex;
   justify-content: center;
-  background-color: #fff;
   align-items: center;
   height: 56px;
   width: 100%;
-  border-radius: 28px;
-  box-shadow: inset 0 0 0 1px rgb(0 0 0 / 60%),
-    inset 0 0 0 2px rgb(0 0 0 / 0%) inset 0 0 0 1px rgb(0 0 0 / 0);
+  border-radius: 50px;
   vertical-align: middle;
   z-index: 0;
   transition-duration: 167ms;
   font-size: 20px;
-  color: rgba(0, 0, 0, 0.6);
+  color: white;
+  gap: 8px;
+  background-color: transparent;
+  border: none;
   &:hover {
-    background-color: rgba(207, 207, 207, 0.25);
-    color: rgba(0, 0, 0, 0.75);
+    background-color: #2F394D;
+    color: white;
+    text-decoration: none;
+    border: none;
   }
 `;
 

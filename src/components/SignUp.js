@@ -4,7 +4,7 @@ import "firebase/auth";
 import "firebase/firestore";
 import styled from "styled-components";
 
-const SignIn = () => {
+const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -19,38 +19,46 @@ const SignIn = () => {
         };
 
   return (
-      <Layout>
-          <img src="/images/log-in.png" alt="" />
-          <Input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-          />
-          
-          <Input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-          />
+    <Container>
+        <Layout>
+            <img src="/images/sign-up.png" alt="" />
+            <Input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+            />
+            
+            <Input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+            />
 
-          <Button>
-              <button onClick={handleSignUp}>Sign Up</button>
-          </Button>
+            <Button>
+                <button fill="true" onClick="" >Cancel</button>
+                <button onClick={handleSignUp}>Sign Up</button>
+            </Button>
 
-      </Layout>
+        </Layout>
+    </Container>
   );
 };
+
+const Container = styled.div`
+    padding: 0%;
+    height: 100vh;
+    width: 100%;
+`;
 
 const Layout = styled.div`
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  justify-content: center;
   align-items: center;
   gap: 20px;
-
-  height: 50%;
-  width: 400%;
   
   img {
     height: 100px;
@@ -82,4 +90,4 @@ const Button = styled.div`
   }
 `;
 
-export default SignIn;
+export default SignUp;
