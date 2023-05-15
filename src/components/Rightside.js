@@ -13,7 +13,58 @@ const MessageRow = ({ user }) => {
   );
 };
 
-const users = [  {    name: 'User 1',    photoURL: '/images/user1.jpg',    lastMessage: 'Hey, what\'s up?'  },  {    name: 'User 2',    photoURL: '/images/user2.jpg',    lastMessage: 'Can you send me that file?'  },  {    name: 'User 3',    photoURL: '/images/user3.jpg',    lastMessage: 'See you tomorrow!'  },  {    name: 'User 4',    photoURL: '/images/user4.jpg',    lastMessage: 'Did you finish the project?'  },  {    name: 'User 5',    photoURL: '/images/user5.jpg',    lastMessage: 'Happy birthday!'  },  {    name: 'User 6',    photoURL: '/images/user6.jpg',    lastMessage: 'What time is the meeting?'  },  {    name: 'User 7',    photoURL: '/images/user7.jpg',    lastMessage: 'Thanks for your help!'  },  {    name: 'User 8',    photoURL: '/images/user8.jpg',    lastMessage: 'Let\'s catch up soon.'  },  {    name: 'User 9',    photoURL: '/images/user9.jpg',    lastMessage: 'Good morning!'  },  {    name: 'User 10',    photoURL: '/images/user10.jpg',    lastMessage: 'See you later!'  },];
+const users = [
+  {
+    name: "User 1",
+    photoURL: "/images/user1.jpg",
+    lastMessage: "Hey, what's up?",
+  },
+  {
+    name: "User 2",
+    photoURL: "/images/user2.jpg",
+    lastMessage: "Can you send me that file?",
+  },
+  {
+    name: "User 3",
+    photoURL: "/images/user3.jpg",
+    lastMessage: "See you tomorrow!",
+  },
+  {
+    name: "User 4",
+    photoURL: "/images/user4.jpg",
+    lastMessage: "Did you finish the project?",
+  },
+  {
+    name: "User 5",
+    photoURL: "/images/user5.jpg",
+    lastMessage: "Happy birthday!",
+  },
+  {
+    name: "User 6",
+    photoURL: "/images/user6.jpg",
+    lastMessage: "What time is the meeting?",
+  },
+  {
+    name: "User 7",
+    photoURL: "/images/user7.jpg",
+    lastMessage: "Thanks for your help!",
+  },
+  {
+    name: "User 8",
+    photoURL: "/images/user8.jpg",
+    lastMessage: "Let's catch up soon.",
+  },
+  {
+    name: "User 9",
+    photoURL: "/images/user9.jpg",
+    lastMessage: "Good morning!",
+  },
+  {
+    name: "User 10",
+    photoURL: "/images/user10.jpg",
+    lastMessage: "See you later!",
+  },
+];
 
 const Rightside = (props) => {
   // add search functionality to filter users based on the search query
@@ -27,7 +78,6 @@ const Rightside = (props) => {
     user.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  
   return (
     <Container>
       <Layout>
@@ -121,7 +171,10 @@ const MessageContainer = styled.div`
 
 const Photo = styled.div`
   box-shadow: none;
-  background-image: ${props => props.user && props.user.photoURL ? `url(${props.user.photoURL})` : `url("/images/photo-icon.svg")`};
+  background-image: ${(props) =>
+    props.user && props.user.photoURL
+      ? `url(${props.user.photoURL})`
+      : `url("/images/photo-icon.svg")`};
   width: 56px;
   height: 56px;
   box-sizing: border-box;
@@ -140,10 +193,8 @@ const Name = styled.div`
 `;
 
 const LastMessage = styled.div`
-  color: #9CA3AF;
+  color: #9ca3af;
   font-size: 14px;
 `;
-
-
 
 export default Rightside;

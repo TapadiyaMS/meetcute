@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import { signInAPI } from "../actions";
 import { Redirect } from "react-router-dom";
 import SignIn from "./SignIn";
@@ -7,13 +7,13 @@ import SignIn from "./SignIn";
 const Login = (props) => {
   return (
     <Container>
-      { props.user && <Redirect to="/home" /> }
+      {props.user && <Redirect to="/home" />}
       <Nav>
         <a href="/">
           <img src="/images/login-logo.svg" alt="" />
         </a>
         <div>
-          <Join href="/signup"> Join now </Join> 
+          <Join href="/signup"> Join now </Join>
         </div>
       </Nav>
       <Section>
@@ -65,7 +65,7 @@ const Join = styled.a`
   color: white;
   &:hover {
     box-shadow: inset 0 0 0 1px transparent;
-    background-color: #2F394D;
+    background-color: #2f394d;
     color: white;
     text-decoration: none;
   }
@@ -142,21 +142,20 @@ const Google = styled.button`
   background-color: transparent;
   border: none;
   &:hover {
-    background-color: #2F394D;
+    background-color: #2f394d;
     color: white;
     text-decoration: none;
     border: none;
   }
 `;
 
-const mapStateToProps = (state) => {    
-    return { 
-      user: state.userState.user,
-    };
+const mapStateToProps = (state) => {
+  return {
+    user: state.userState.user,
+  };
 };
 
-
-const mapDispatchToProps = (dispatch) => ({    
+const mapDispatchToProps = (dispatch) => ({
   signIn: () => dispatch(signInAPI()),
 });
 

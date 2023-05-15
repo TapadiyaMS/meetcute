@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { useState } from "react";
-import { firebase } from 'firebase/compat/app';
+import { firebase } from "firebase/compat/app";
 
 const Leftside = (props) => {
-  // 
+  //
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearch = (event) => {
@@ -19,31 +19,22 @@ const Leftside = (props) => {
     <Container>
       <Layout>
         <HeaderWrapper>
-            <Photo />
-        </ HeaderWrapper>
-        
+          <Photo />
+        </HeaderWrapper>
+
         <Details>
           <FieldWrapper>
             <Field>
               <h1> Name </h1>
             </Field>
-            <Name
-              type="text"
-              defaultValue="user"
-              onChange={changeName}
-            />
+            <Name type="text" defaultValue="user" onChange={changeName} />
           </FieldWrapper>
 
-          
           <Field>
             <h1> About Me </h1>
           </Field>
-          <AboutMe
-            type="text"
-            onChange={handleSearch}
-          />
-          
-          
+          <AboutMe type="text" onChange={handleSearch} />
+
           <FieldWrapper>
             <Field>
               <h1> Position </h1>
@@ -59,7 +50,6 @@ const Leftside = (props) => {
             </select>
           </FieldWrapper>
 
-          
           <FieldWrapper>
             <Field>
               <h1> Body Type </h1>
@@ -73,19 +63,15 @@ const Leftside = (props) => {
               <option value="other">Other</option>
             </select>
           </FieldWrapper>
-          
-          
+
           <Field>
             <h1> Looking for </h1>
           </Field>
-          
-          
+
           <Field>
             <h1> Status </h1>
           </Field>
-          
         </Details>
-        
       </Layout>
     </Container>
   );
@@ -103,8 +89,8 @@ const Layout = styled.div`
 `;
 
 const HeaderWrapper = styled.div`
-  display:flex;
-  flex-flow:column wrap;
+  display: flex;
+  flex-flow: column wrap;
   align-items: center;
   border-bottom: 1px solid #ccc;
   margin-top: 10px;
@@ -113,7 +99,10 @@ const HeaderWrapper = styled.div`
 
 const Photo = styled.div`
   box-shadow: none;
-  background-image: ${props => props.user && props.user.photoURL ? `url(${props.user.photoURL})` : `url("/images/photo-icon.svg")`};
+  background-image: ${(props) =>
+    props.user && props.user.photoURL
+      ? `url(${props.user.photoURL})`
+      : `url("/images/photo-icon.svg")`};
   width: 72px;
   height: 72px;
   box-sizing: border-box;
@@ -127,19 +116,19 @@ const Photo = styled.div`
 `;
 
 const FieldWrapper = styled.div`
-  display:flex;
+  display: flex;
   justify-content: space-between;
 `;
 
 const Details = styled.div`
-  display: flex; 
+  display: flex;
   flex-direction: column;
 `;
 
 const Field = styled.div`
-display: flex;
-flex-direction: row;
-padding: 20px;
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
 `;
 
 const Name = styled.input`
@@ -158,11 +147,10 @@ const AboutMe = styled.input`
   font-size: inherit;
 `;
 
-const mapStateToProps = (state) => {    
-  return { 
+const mapStateToProps = (state) => {
+  return {
     user: state.userState.user,
   };
 };
-
 
 export default connect(mapStateToProps)(Leftside);

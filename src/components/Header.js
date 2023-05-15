@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import { signOutAPI } from "../actions";
 
 const Header = (props) => {
-
   return (
     <Container>
       <Content>
@@ -38,14 +37,14 @@ const Header = (props) => {
 
             <User>
               <a>
-                { props.user && props.user.photoURL ? (
+                {props.user && props.user.photoURL ? (
                   <img src={props.user.photoURL} alt="" />
-                  ) : ( 
+                ) : (
                   <img src="/images/user.svg" />
-                )} 
+                )}
                 <span>
-                    Me
-                    <img src="/images/down-icon.svg" alt="" />
+                  Me
+                  <img src="/images/down-icon.svg" alt="" />
                 </span>
               </a>
 
@@ -53,7 +52,6 @@ const Header = (props) => {
                 <button>Sign Out</button>
               </SignOut>
             </User>
-
           </NavListWrap>
         </Nav>
       </Content>
@@ -178,7 +176,7 @@ const NavList = styled.li`
         margin-left: 3px;
       }
     }
-    
+
     @media (max-width: 768px) {
       min-width: 70px;
     }
@@ -215,7 +213,7 @@ const SignOut = styled.div`
 `;
 
 const User = styled(NavList)`
-display: flex;
+  display: flex;
   a > svg {
     width: 24px;
     border-radius: 50%;
@@ -229,9 +227,9 @@ display: flex;
     display: flex;
     align-items: center;
     img {
-        width: 15px;
-        height: 15px;
-        padding-left: 1pxpx;
+      width: 15px;
+      height: 15px;
+      padding-left: 1pxpx;
     }
   }
   &:hover {
@@ -243,15 +241,14 @@ display: flex;
   }
 `;
 
-const mapStateToProps = (state) => {    
-  return { 
+const mapStateToProps = (state) => {
+  return {
     user: state.userState.user,
   };
 };
 
-
 const mapDispatchToProps = (dispatch) => ({
-  signOut: () => dispatch(signOutAPI())
+  signOut: () => dispatch(signOutAPI()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

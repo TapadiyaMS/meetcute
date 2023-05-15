@@ -8,14 +8,33 @@ body {
 }
 
 /* // The :root pseudo-class represents an element that is the root of the document. In HTML, this is always the HTML element. */
-:root, body, html {
+:root,
+body,
+html {
   /* // background color for the whole application */
   background-color: #1a202c;
   /* // "box-sizing" - CSS property sets how the total width and height of an element is calculated. "border-box" -  fits within specified size. */
   box-sizing: border-box;
 }
 
-div, h1, h2, h3, h4, h5, h6, header, html, i, img, label, li, nav, p, small, span, ul {
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+html,
+i,
+img,
+label,
+li,
+nav,
+p,
+small,
+span,
+ul {
   margin: 0;
   padding: 0;
   border: 0;
@@ -48,4 +67,3 @@ body {
     opacity: 1;
   }
 }
-

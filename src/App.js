@@ -1,16 +1,16 @@
-import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./components/Login";
-import Header from './components/Header';
-import Home from './components/Home';
-import { useEffect } from 'react';
+import Header from "./components/Header";
+import Home from "./components/Home";
+import { useEffect } from "react";
 import { getUserAuth } from "./actions";
-import { connect } from 'react-redux';
-import JoinNow from './components/JoinNow';
-import SignUp from './components/SignUp';
+import { connect } from "react-redux";
+import JoinNow from "./components/JoinNow";
+import SignUp from "./components/SignUp";
 
 function App(props) {
-  useEffect (() => {
+  useEffect(() => {
     props.getUserAuth();
   }, []);
 
@@ -18,13 +18,13 @@ function App(props) {
     <div className="App">
       <Router>
         <Switch>
-          <Route exact path='/'>
+          <Route exact path="/">
             <Login />
           </Route>
-          <Route exact path='/signup'>
+          <Route exact path="/signup">
             <SignUp />
           </Route>
-          <Route path='/home'>
+          <Route path="/home">
             <Header />
             <Home />
           </Route>
@@ -34,15 +34,12 @@ function App(props) {
   );
 }
 
-const mapStateToProps = (state) => {    
-  return { 
-  };
+const mapStateToProps = (state) => {
+  return {};
 };
 
-
-const mapDispatchToProps = (dispatch) => ({    
+const mapDispatchToProps = (dispatch) => ({
   getUserAuth: () => dispatch(getUserAuth()),
 });
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
